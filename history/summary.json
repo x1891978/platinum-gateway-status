@@ -23,16 +23,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.kjhbm.com.ico",
     "slug": "new-api",
     "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
+    "uptime": "4.38%",
+    "uptimeDay": "4.38%",
+    "uptimeWeek": "4.38%",
+    "uptimeMonth": "4.38%",
+    "uptimeYear": "4.38%",
     "time": 180,
     "timeDay": 180,
     "timeWeek": 180,
     "timeMonth": 180,
     "timeYear": 180,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2026-03-10": 0
+    }
   }
 ]
