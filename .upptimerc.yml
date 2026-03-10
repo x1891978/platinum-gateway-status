@@ -1,4 +1,4 @@
-owner: x1891978 
+owner: x1891978
 repo: platinum-gateway-status
 
 user-agent: Platinum-Gateway-Monitor/1.0
@@ -26,4 +26,4 @@ sites:
       - 200
 
 assignees:
-  - x1891978  # ⚠️ 请替换为你真实的 GitHub 用户名，宕机会自动在 Issue 里艾特你
+  - x1891978
