@@ -1,36 +1,29 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+owner: x1891978 
+repo: platinum-gateway-status
+
+user-agent: Platinum-Gateway-Monitor/1.0
+status-website:
+  cname: up.kjhbm.com
+  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
+  name: 网关状态监控
+  introTitle: "系统的呼吸与心跳"
+  introMessage: 这是我们大模型分发网关的实时监控面板。如果这里全绿但你无法使用，请检查你的网络或客户端设置。
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Test Broken Site
-    url: https://thissitedoesnotexist.koj.co
-  - name: IPv6 test
-    url: forwardemail.net
-    port: 80
-    check: "tcp-ping"
-    ipv6: true
+  # 探针 1：监控 Caddy 和 Bridge 是否活在物理层 (0 成本)
+  - name: 🟢 核心网关心跳 (Bridge)
+    url: https://api.kjhbm.com/healthz
+    expectedStatusCodes:
+      - 200
 
-status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
-  navbar:
-    - title: Status
-      href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
+  # 探针 2：监控 New-API 鉴权中枢与 DB 数据库是否存活 (极低成本验证)
+  - name: 🔵 计费与路由中枢 (New-API)
+    url: https://api.kjhbm.com/v1/models
+    method: GET
+    headers:
+      - "Authorization: Bearer $MONITOR_TOKEN"
+    expectedStatusCodes:
+      - 200
 
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+assignees:
+  - x1891978  # ⚠️ 请替换为你真实的 GitHub 用户名，宕机会自动在 Issue 里艾特你
