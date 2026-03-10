@@ -24,6 +24,28 @@ sites:
       - "Authorization: Bearer $MONITOR_TOKEN"
     expectedStatusCodes:
       - 200
+      
+  # 探针 3：全链路测活 - 基础文本 (消耗极低)
+  - name: ⚡ 文本引擎 (Gemini 2.5 Flash)
+    url: https://api.kjhbm.com/v1/chat/completions
+    method: POST
+    headers:
+      - "Authorization: Bearer $MONITOR_TOKEN"
+      - "Content-Type: application/json"
+    body: '{"model": "gemini-2.5-flash", "messages": [{"role": "user", "content": "hi"}], "max_tokens": 5, "stream": false}'
+    expectedStatusCodes:
+      - 200
+
+  # 探针 4：全链路测活 - 旗舰画图 (由于网关做了异步URL秒回，这里必能测通且不会超时)
+  - name: 🎨 画图引擎 (Nano Banana)
+    url: https://api.kjhbm.com/v1/chat/completions
+    method: POST
+    headers:
+      - "Authorization: Bearer $MONITOR_TOKEN"
+      - "Content-Type: application/json"
+    body: '{"model": "gemini-2.5-flash-image", "messages": [{"role": "user", "content": "draw a dot"}], "size": "1024x1024", "stream": false}'
+    expectedStatusCodes:
+      - 200
 
 assignees:
   - x1891978
