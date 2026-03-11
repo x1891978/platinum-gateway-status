@@ -1,6 +1,9 @@
 owner: x1891978
 repo: platinum-gateway-status
 
+workflowSchedule:
+  uptime: "0 */6 * * *"
+  
 user-agent: Platinum-Gateway-Monitor/1.0
 status-website:
   cname: up.kjhbm.com
