@@ -1,7 +1,7 @@
 url: https://api.kjhbm.com/v1/chat/completions
-status: down
-code: 500
-responseTime: 157
-lastUpdated: 2026-03-20T14:32:34.337Z
+status: up
+code: 200
+responseTime: 1211
+lastUpdated: 2026-03-20T19:50:46.397Z
 startTime: 2026-03-10T11:55:40.415Z
 generator: Upptime <https://github.com/upptime/upptime>
